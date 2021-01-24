@@ -1,0 +1,50 @@
+#logo{  
+    width: 100px;
+    height: 100px;
+    position: relative ;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+body{
+    margin-top: 30px;
+    padding: auto;
+    width: inherit;
+    background-position: center center;
+
+}
+
+#page-name{
+    size: 40px;
+    font-family: sans-serif;
+    text-align: center;
+    text-decoration: solid;
+    position: relative;
+}
+
+#login-btn{
+    margin-right: 30%;
+    margin-left: 30%;
+    align-content: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    width: 40%;
+    border-radius: 25px;
+    position: relative;
+}
+
+#email , #password , #confirm-password , #username{
+    margin-right: 30%;
+    margin-left: 30%;
+    position: relative;
+    margin-top: 10px;
+    width: 40%;
+}
+
+
+a{
+    size: 14px;
+    margin-left: 30%;
+}
