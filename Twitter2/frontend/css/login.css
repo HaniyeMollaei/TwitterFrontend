@@ -1,0 +1,9 @@
+#logo{  
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+body{
+    margin-top: 100px;
+}
