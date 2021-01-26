@@ -6,7 +6,10 @@ import {
 import React, { Component } from 'react';
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignUp";
+import Home from "./components/Home";
 import Welcome from "./components/Welcome";
+import Notifications from "./components/Notifications";
+
 
 class App extends Component {
   constructor(props) {
@@ -86,10 +89,16 @@ class App extends Component {
             <Route path="/signup">
               <SignupForm />
             </Route>
-
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/notifications">
+              <Notifications />
+            </Route>
             <Route path="/">
               <Welcome />
             </Route>
+
 
           </Switch>
         </div>
