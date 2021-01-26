@@ -79,7 +79,9 @@ class App extends Component {
             <Route path="/home">
               <Home />
             </Route>
-
+   <Route path="/profile">
+              <Profile />
+            </Route>
             <Route path="/notifications">
               <Notifications />
             </Route>
