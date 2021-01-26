@@ -7,10 +7,16 @@
 }
 
 
-
+.warn{
+    size: 12px;
+    color: crimson;
+    font-family: SansSerif;
+    margin-right: 30%;
+    margin-left: 30%;
+}
 #page-name{
     size: 40px;
-    font-family: sans-serif;
+    font-family: SansSerif;
     text-align: center;
     text-decoration: solid;
     position: relative;

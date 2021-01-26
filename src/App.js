@@ -1,4 +1,4 @@
-import {
+import{
   BrowserRouter as Router,
   Switch,
   Route, Link
@@ -15,30 +15,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayed_form: '',
       logged_in: localStorage.getItem('token'),
       username: ''
     };
   }
 
-  componentDidMount() {
-    if (this.state.logged_in) {
-      fetch('http://localhost:8080', {
-        headers: {
-          Authorization: `JWT ${localStorage.getItem('token')}`
-        }
-      })
-          .then(res => res.json())
-          .then(json => {
-            this.setState({username: json.username});
-          });
-    }
-  }
+
+
 
   handle_logout = () => {
     <Link to="/login"/>
     localStorage.removeItem('token');
     this.setState({ logged_in: false, username: ''});
+  };
+
+  handle_signup = (e, data) => {
+    console.log(data);
   };
 
   handle_login = (e, data) => {
@@ -67,12 +59,6 @@ class App extends Component {
   };
 
 
-  display_form = form => {
-    this.setState({
-      displayed_form: form
-    });
-  };
-
 
   render() {
 
@@ -89,12 +75,15 @@ class App extends Component {
             <Route path="/signup">
               <SignupForm />
             </Route>
+
             <Route path="/home">
               <Home />
             </Route>
+
             <Route path="/notifications">
               <Notifications />
             </Route>
+
             <Route path="/">
               <Welcome />
             </Route>
