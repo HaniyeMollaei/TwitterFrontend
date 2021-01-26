@@ -9,7 +9,7 @@ import SignupForm from "./components/SignUp";
 import Home from "./components/Home";
 import Welcome from "./components/Welcome";
 import Notifications from "./components/Notifications";
-
+import Profile from "./components/Profile";
 
 class App extends Component {
   constructor(props) {
