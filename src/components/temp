@@ -1,0 +1,64 @@
+ <form onSubmit={e => this.props.handle_signup(e, this.state)}>
+                <ul class="loginText">
+                    <li><h4>Sign Up</h4></li>
+                    <li><label htmlFor="username">Username</label></li>
+                    <li><input
+                        class="inputArea"
+                        type="text"
+                        name="username"
+                        value={this.state.username}
+                        onChange={this.handle_change}
+                    /></li>
+                    <li><label htmlFor="password">Password</label></li>
+                    <li><input
+                        class="inputArea"
+                        type="password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handle_change}
+                    /></li>
+                    <li><input type="submit" /></li>
+                </ul>
+            </form>
+
+
+            //--------------------------------------------------------
+
+            <div className="App">
+                            <ol className="about_twitter">
+                                <li className="first">Follow your interests.</li>
+                                <li className="second">Hear what people are talking about.</li>
+                                <li className="third">Join the conversation.</li>
+                            </ol>
+                            <div>
+                                <img className="card" src="https://mulder-onions.com/wp-content/uploads/2017/02/White-square.jpg"></img>
+                                <div className="title">See what's happening in the world right now.</div>
+                                <div>
+                                    <div id="join">Join Twitter today.</div>
+                                    <button id="sign_up">Sign up</button>
+                                    <button id="login">Log in</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+            //--------------------------------------------------------------------
+            "icons": [
+                {
+                  "src": "favicon.ico",
+                  "sizes": "64x64 32x32 24x24 16x16",
+                  "type": "image/x-icon"
+                },
+                {
+                  "src": "../src/src/logo.png",
+                  "type": "image/png",
+                  "sizes": "192x192"
+                },
+                {
+                  "src": "../src/src/logo.png",
+                  "type": "image/png",
+                  "sizes": "512x512"
+                }
+              ],
+
+              //-------------------------------------------

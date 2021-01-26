@@ -1,0 +1,38 @@
+#logo{  
+    width: 100px;
+    height: 100px;
+    position: relative ;
+    display: block;
+    margin: 30px autos 20px;
+}
+
+
+#page-name{
+    size: 40px;
+    font-family: sans-serif;
+    text-align: center;
+    text-decoration: solid;
+    position: relative;
+}
+
+#login-btn{
+    align-content: center;
+    margin: 20px 30% 15px;
+    width: 40%;
+    border-radius: 25px;
+    position: relative;
+}
+
+#email , #password{
+    margin-right: 30%;
+    margin-left: 30%;
+    position: relative;
+    margin-top: 20px;
+    width: 40%;
+}
+
+
+#signup-link{
+    size: 16px;
+    margin-left: 30%;
+}
