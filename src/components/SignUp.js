@@ -3,6 +3,7 @@ import '../css/signup.css';
 import {Link} from "react-router-dom";
 import logo from '../src/logo.png';
 import history from "./history";
+import LoginForm from "./LoginForm";
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class SignupForm extends React.Component {
             username: '',
             email: '',
             password: '',
+            image : 'https://uupload.ir/files/mkfe_avatar.png',
             re_pass: '',
             disable :true
         };
@@ -37,7 +39,7 @@ class SignupForm extends React.Component {
         }
 
 
-        if (data.username.toString().length >16 || data.username.toString().length < 6){
+        if (data.username.toString() !== '' &&(data.username.toString().length >16 || data.username.toString().length < 6)){
             console.log("username warning");
             document.getElementById("username_p").innerHTML= "<p class='warn' id='username_warn'>Username should have 6 to 16 letter.</p>";
             return false;
@@ -99,7 +101,11 @@ class SignupForm extends React.Component {
             }else{
                 newState.disable = false;
             }
-
+             if (newState.image==='' || !newState.image.includes('.')){
+                 newState.image="https://uupload.ir/files/mkfe_avatar.png"
+                 //
+                 //https://uupload.ir/files/lwfw_logo.png
+             }
                 return newState;
         });
     };
@@ -108,7 +114,6 @@ class SignupForm extends React.Component {
 
         e.preventDefault();
 
-        alert("On Submit :");
         if(!this.checkFields(data)){
             alert("check data");
             return;
@@ -124,9 +129,17 @@ class SignupForm extends React.Component {
             logged_in: true,
             username: data.username
         });
-        alert("you are signed up on Twitter");
-        history.push("/login" , this.state);
+        alert("you are signed up on Twitter\n"+this.state.username+ "\n "+this.state.email +
+            " \n"+this.state.password+" \n"+this.state.image);
+
+        history.push("/login" , user);
         window.location.reload();
+
+        return(
+            <div>
+                <LoginForm user={user}/>
+            </div>
+        );
 
         /*   fetch('http://157.245.160.185:8000/users/', {
              method: 'POST',
@@ -162,13 +175,14 @@ class SignupForm extends React.Component {
                         </div>
 
                         <div className="form-group">
-                            <input type="text" name="username" id="username" onChange={this.handle_change} className="form-control" placeholder="Username"></input>
+                            <input type="text" name="username" id="username" onChange={this.handle_change}
+                                   className="form-control" placeholder="Username"></input>
                             <div id="username_p">
                             </div>
                         </div>
                         <div className="form-group">
-                            <input type="password" name="password" id="password" onChange={this.handle_change} className="form-control"
-                                   placeholder="Password *"></input>
+                            <input type="password" name="password" id="password" onChange={this.handle_change}
+                                   className="form-control" placeholder="Password *"></input>
                             <div id="password_p">
                             </div>
                         </div>
@@ -176,6 +190,17 @@ class SignupForm extends React.Component {
                             <input type="password" name="re_pass" id="confirm-password" onChange={this.handle_change} className="form-control"
                                    placeholder="Confirm password *"></input>
                             <div id="re_pass_p">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="row" id="upload-image">
+                                <div class="col align-self-end">
+                                    <img id="avatar" src={this.state.image} alt="logo"></img>
+                                </div>
+                                <div class="col align-self-end">
+                                    <input type="text" name="image" id="image-adr" onChange={this.handle_change} className="form-control"
+                                           placeholder="Enter image URL"></input>
+                                </div>
                             </div>
                         </div>
                         <div>
