@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/home.css';
 import {Link} from "react-router-dom";
+import logo from "../src/logo.png";
 
 class TweetsList extends React.Component {
     render() {
@@ -8,7 +9,7 @@ class TweetsList extends React.Component {
             <ul id="tweets_list">
                 {Object.keys(this.props.eachTweet).map((index) => {
                     return (
-                        <li name={index}>{this.props.eachTweet[index]}</li>
+                        <li id="each_tweet" name={index}>{this.props.eachTweet[index]}</li>
                     );
                 })}
             </ul>
@@ -29,8 +30,14 @@ class TweetBox extends React.Component {
     render() {
         return (
             <form onSubmit={e => this.sendTweet(e)}>
-                <input placeholder="what's happening?" type="text" id="tweet" ref="item"/><br/>
-                <button type="submit"  id="send_tweet_button">Tweet</button>
+                <input class="form-control" onChange={this.handle_change} id="tweet_txt" name="tweet" rows="8" cols="70"
+                       placeholder="what's happening?" type="text"  ref="item"/><br/>
+                <p id="text_size"></p>
+                <div id="tweet_size_warn"></div>
+                <button id="send_tweet_button" type="submit" class="btn btn-primary"
+                        onClick={e => this.sendTweet(e, this.state)}
+                >Tweet
+                </button>
             </form>
         );
     }
@@ -84,35 +91,52 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div className="App">
-                <h2 id="home">Home</h2>
-                <div id="sidebar_home">
-                    <ul>
-                        <Link to="/home">
-                            <li className="sidebar">Home</li>
-                        </Link>
-                        <Link to="/notifications">
-                            <li className="sidebar">Notifications</li>
-                        </Link>
-                        <Link to="/profile">
-                            <li className="sidebar">Profile</li>
-                        </Link>
-                    </ul>
-                    <button id="tweet_button">Tweet</button>
-                </div>
-
-                <div id="page_center">
-                    <div>
-                        <TweetsList eachTweet={this.state.TweetsList}/>
-                        <TweetBox addTweet={this.addTweetToList}/>
-                    </div>
-                </div>
-                <div id="sidebar_search">
-                    <div class="search">
-                        <input id="search_txt" type="text" size="10" placeholder="Search Twitter"
-                               onClick={e => this.sendTweet(e, this.state)} name="search"></input>
-                    </div>
-                </div>
+            <div>
+                <table id="main_table">
+                    <tr class="row">
+                        <td class="col" colSpan="4">
+                            <h2 id="home">Twitter</h2>
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-4">
+                            <div id="sidebar_left">
+                                <img id="logo-home" src={logo} alt="logo"></img>
+                                <Link to="/home">
+                                    <button class="btn btn-outline-primary menu-item">Home</button>
+                                </Link>
+                                <br/>
+                                <Link to="/notifications">
+                                    <button class="btn btn-outline-primary menu-item">Notifications</button>
+                                </Link>
+                                <br/>
+                                <Link to="/profile">
+                                    <button class="btn btn-outline-primary menu-item">Profile</button>
+                                </Link>
+                                <Link to="/profile">
+                                    <button class="btn btn-outline-primary menu-item">Log out</button>
+                                </Link>
+                                <br/>
+                                {/*<button id="tweet_button">Tweet</button>*/}
+                            </div>
+                        </td>
+                        <td class="col-5" colSpan="2">
+                            <div id="page_center">
+                                <div>
+                                    <TweetsList eachTweet={this.state.TweetsList}/>
+                                    <TweetBox addTweet={this.addTweetToList}/>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-3">
+                            <div id="sidebar_right">
+                                <input id="search_txt" type="text" size="10" class="form-control"
+                                       placeholder="Search Twitter"
+                                       name="search"></input>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         );
     }
