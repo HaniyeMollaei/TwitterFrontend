@@ -63,6 +63,22 @@ ul {
     width: inherit;
 }
 
+.btn-primary {
+    background-color: #1DA1F2;
+    border-color: #1DA1F2;
+}
+
+#retweet {
+    width: 32px;
+    position: absolute;
+    left: 400px;
+    top:70px;
+}
+
+.customContainer {
+    border: 1px solid black;
+}
+
 #each_tweet {
     box-sizing: content-box;
     width: 400px;
@@ -71,6 +87,22 @@ ul {
     right: 25%;
     padding: 30px;
     border: 2px solid #1DA1F2;
+    word-break: break-all;
+
+}
+
+.like {
+    color: #1DA1F2;
+    outline: none;
+    background: #fff;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    box-shadow: 0 0 22px 4px rgba(0, 0, 0, 0.1);
+    height: 40px;
+    width: 100px;
+    transition: box-shadow 0.3s;
+
 }
 
 #tweets_list {
@@ -78,6 +110,8 @@ ul {
     left: 17px;
     top: 240px;
     right: 25%;
+    word-break: break-all;
+
 }
 
 #tweet_txt {
@@ -87,6 +121,7 @@ ul {
     top: 15%;
     right: 25%;
     height: 170px;
+    word-break: break-all;
     /*align-content: center;*/
     border-radius: 30px; /* Curve of border corners */
 }
