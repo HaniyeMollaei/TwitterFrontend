@@ -12,11 +12,17 @@ class Home extends React.Component {
     };
 
     sendTweet = (e, data)  =>{
+
+        const field = document.getElementById("tweet_list");
+        const template = document.createElement("div");
+        template.setAttribute("class", "item");
+        field.parentNode.appendChild(template);
+
         const elem = document.createElement("div");
         elem.setAttribute("class", "item");
         elem.innerHTML = data.tweet.toString();
 
-        document.getElementById("tweet_list").appendChild(elem);
+        template.appendChild(elem);
 
     }
     handle_change = e => {
@@ -56,7 +62,7 @@ class Home extends React.Component {
                     <textarea id="tweet_txt" name="tweet" rows="8" cols="70" placeholder="  What's happening?" onChange={this.handle_change}></textarea>
                     <p id="text_size"></p>
                     <div id="tweet_size_warn"></div>
-                    <button id="send_tweet_button" disabled={this.state.disable_tweet}>Tweet</button>
+                    <button id="send_tweet_button" disabled={this.state.disable_tweet} onClick={e => this.sendTweet(e, this.state)}>Tweet</button>
                 </div>
                 <div class="tweet_list">
 
@@ -65,7 +71,7 @@ class Home extends React.Component {
 
             <div id="sidebar_search">
                 <div class="search">
-                    <input id="search_txt" type="text" size="10" placeholder="Search Twitter" onClick={e => this.handle_signup(e, this.state)} name="search"></input>
+                    <input id="search_txt" type="text" size="10" placeholder="Search Twitter" onClick={e => this.sendTweet(e, this.state)} name="search"></input>
                 </div>
             </div>
         </div>
