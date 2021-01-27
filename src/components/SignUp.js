@@ -3,8 +3,7 @@ import '../css/signup.css';
 import {Link} from "react-router-dom";
 import logo from '../src/logo.png';
 import history from "./history";
-import {Route} from "react-router";
-import LoginForm from "./LoginForm";
+
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
@@ -127,6 +126,7 @@ class SignupForm extends React.Component {
         });
         alert("you are signed up on Twitter");
         history.push("/login" , this.state);
+        window.location.reload();
 
         /*   fetch('http://157.245.160.185:8000/users/', {
              method: 'POST',
