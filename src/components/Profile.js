@@ -23,7 +23,16 @@ class Profile extends React.Component {
                 </ul>
                 <button id="tweet_button">Tweet</button>
                 <h2 id="profile">Profile</h2>
-                <button id="edit_photo">Edit profile photo</button>
+
+                <React.Fragment>
+                    <input
+                        ref="fileInput"
+                        onChange={this.handleFileUpload}
+                        type="file"
+                        style={{display: "none"}}
+                        // multiple={false}
+                    />
+                    <button onClick={() => this.refs.fileInput.click()} id="edit_photo">Edit profile photo</button> </React.Fragment>
                 <button id="edit_id">Edit username</button>
                 <React.Fragment>
                     <input
