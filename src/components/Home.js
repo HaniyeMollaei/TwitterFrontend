@@ -2,18 +2,50 @@ import React from 'react';
 import '../css/home.css';
 import {Link} from "react-router-dom";
 import logo from "../src/logo.png";
+import retweet from "../src/retweet.png";
 
 class TweetsList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {liked: false};
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(event) {
+        this.setState({liked: !this.state.liked});
+    }
+
+    sendTweet(e) {
+        //  e.preventDefault();
+        let newTweet = this.refs.item.value;
+        if (newTweet !== '') {
+            this.props.addTweet(newTweet);
+            this.refs.item.value = '';
+        }
+    }
+
     render() {
+        let buttonText = this.state.liked ? 'Unlike' : 'Like';
         return (
             <ul id="tweets_list">
                 {Object.keys(this.props.eachTweet).map((index) => {
                     return (
-                        <li id="each_tweet" name={index}>{this.props.eachTweet[index]}</li>
+                        <li id="each_tweet" name={index}>{this.props.eachTweet[index]}
+                            <div className="customContainer">
+                                <button onClick={this.handleClick} className="like">
+                                    <i className="fa fa-heart"></i>&nbsp;
+                                    {buttonText}</button>
+                                <input id="comment" placeholder="comment"/>
+                                <form onSubmit={e => this.sendTweet(e)}>
+                                    <img id="retweet" src={retweet} onClick={e =>
+                                        this.sendTweet(this.props.eachTweet[index], this.state)}
+                                    /></form>
+                            </div>
+                        </li>
                     );
                 })}
             </ul>
-        );
+        )
     }
 }
 
@@ -31,12 +63,11 @@ class TweetBox extends React.Component {
         return (
             <form onSubmit={e => this.sendTweet(e)}>
                 <input class="form-control" onChange={this.handle_change} id="tweet_txt" name="tweet" rows="8" cols="70"
-                       placeholder="what's happening?" type="text"  ref="item"/><br/>
+                       placeholder="what's happening?" type="text" ref="item"/><br/>
                 <p id="text_size"></p>
                 <div id="tweet_size_warn"></div>
                 <button id="send_tweet_button" type="submit" class="btn btn-primary"
-                        onClick={e => this.sendTweet(e, this.state)}
-                >Tweet
+                        onClick={e => this.sendTweet(e, this.state)}>Tweet
                 </button>
             </form>
         );
