@@ -33,13 +33,12 @@ class TweetsList extends React.Component {
                         <li id="each_tweet" name={index}>{this.props.eachTweet[index]}
                             <div className="customContainer">
                                 <button onClick={this.handleClick} className="like">
-                                    <i className="fa fa-heart"></i>&nbsp;
                                     {buttonText}</button>
                                 <input id="comment" placeholder="comment"/>
-                                <form onSubmit={e => this.sendTweet(e)}>
-                                    <img id="retweet" src={retweet} onClick={e =>
-                                        this.sendTweet(this.props.eachTweet[index], this.state)}
-                                    /></form>
+                                {/*<form onSubmit={e => this.sendTweet(e)}>*/}
+                                <img id="retweet" src={retweet} onClick={e =>
+                                    this.sendTweet(this.props.eachTweet[index], this.state)}/>
+                                {/*</form>*/}
                             </div>
                         </li>
                     );
