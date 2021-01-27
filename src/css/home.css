@@ -4,18 +4,25 @@ ul {
     list-style: none;
 }
 
-#sidebar_home{
+#item {
     position: relative;
-    margin : 10px ;
+    margin: 10px;
+    left: 10px;
+}
+
+#sidebar_home {
+    position: relative;
+    margin: 10px;
     left: 10px;
     border: 1px solid #aaa;
     width: 25%;
 }
+
 .sidebar {
     top: 30px;
     font-family: sans-serif;
     padding-left: 60px;
-    left : 20px;
+    left: 20px;
     height: 50px;
     line-height: 50px;
     border: 1px solid #aaa;
@@ -34,29 +41,9 @@ ul {
     user-select: none;
 }
 
-li:hover {
-    border-color: #777;
-    box-shadow: 3px 3px 5px #333;
-    background: #eeeeee; /* Old browsers */
-    background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 25%, #ffffff 75%, #dddddd 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dddddd), color-stop(25%, #ffffff), color-stop(75%, #ffffff), color-stop(100%, #dddddd)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 25%, #ffffff 75%, #dddddd 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #dddddd 0%, #ffffff 25%, #ffffff 75%, #dddddd 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #dddddd 0%, #ffffff 25%, #ffffff 75%, #dddddd 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #dddddd 0%, #ffffff 25%, #ffffff 75%, #dddddd 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#dddddd', GradientType=0); /* IE6-9 */
-}
 
-li:hover:before {
-    border-left-color: #777;
-}
 
-li:active {
-    background: #eee;
-    box-shadow: inset 0 1px 1px #666;
-}
-
-#tweet_butto {
+#tweet_button {
     font-weight: bold;
     position: absolute;
     left: 75px;
@@ -77,19 +64,24 @@ li:active {
 #home {
     position: relative;
     text-align: center;
-    margin: 5px 0px 5px ;
+    margin: 5px 0px 5px;
     height: 15%;
     width: inherit;
 }
-
-#tweet_txt {
+#tweets_list{
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    right: 25%;
+}
+#tweet {
     position: absolute;
     left: 30%;
     top: 15%;
     right: 25%;
     width: 40%;
     height: 20%;
-    align-content: center;
+    /*align-content: center;*/
     border-radius: 30px; /* Curve of border corners */
 }
 
@@ -100,8 +92,8 @@ textarea .placeholder {
 #send_tweet_button {
     font-weight: bold;
     position: absolute;
-    left: 800px;
-    top: 280px;
+    left: 830px;
+    top: 245px;
     border: none;
     font-family: sans-serif;
     font-size: 0.875em;
@@ -122,7 +114,8 @@ textarea .placeholder {
     padding: 5px;
     border-radius: 25px; /* Curve of border corners */
 }
-#sidebar_search{
+
+#sidebar_search {
     width: 25%;
     left: 75%;
     right: 5px;
@@ -130,9 +123,10 @@ textarea .placeholder {
     align-content: center;
 }
 
-#page_center{
+#page_center {
     width: 25%;
 }
+
 .tweets {
     list-style: -moz-gurmukhi;
     position: relative;
