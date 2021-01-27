@@ -1,8 +1,9 @@
 .pagination {
-    display: inline-block;
     position: absolute;
-    top: 100px;
-    left: 520px;
+    top: 60px;
+    left: 200px;
+    display: inline-block;
+    font-weight: bold;
 }
 /*ul {*/
 /*    padding: 0;*/
