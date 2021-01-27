@@ -15,8 +15,9 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
+
 .popup_inner {
     position: absolute;
     left: 75%;
@@ -26,6 +27,7 @@
     margin: auto;
     background: white;
 }
+
 .sidebar {
     position: relative;
     padding-left: 60px;
@@ -88,7 +90,7 @@ li:hover {
 
 #profile {
     position: absolute;
-    left: 420px;
+    left: 220px;
     top: 20px;
 }
 
@@ -115,11 +117,13 @@ li:active {
     width: 280px;
 }
 
+
+
 /**/
 #edit_photo {
     font-weight: bold;
     position: absolute;
-    left: 675px;
+    left: 400px;
     top: 180px;
     border: none;
     font-family: sans-serif;
@@ -136,7 +140,7 @@ li:active {
 
 .avatar {
     position: absolute;
-    left: 375px;
+    left: 120px;
     top: 120px;
     vertical-align: middle;
     width: 160px;
@@ -147,7 +151,7 @@ li:active {
 #edit_id {
     font-weight: bold;
     position: absolute;
-    left: 675px;
+    left: 400px;
     top: 120px;
     border: none;
     font-family: sans-serif;
@@ -164,13 +168,14 @@ li:active {
 
 #followers {
     position: absolute;
-    left: 485px;
+    left: 285px;
     top: 280px;
     font-size: 20px;
 }
+
 #followings {
     position: absolute;
-    left: 685px;
+    left: 485px;
     top: 280px;
     font-size: 20px;
 }
