@@ -11,15 +11,44 @@ class LoginForm extends React.Component {
     password: ''
   };
 
+
+  componentDidMount() {
+    console.log("Mount : " + this.props.user.username)
+    this.initFields();
+    if (this.state.logged_in) {
+      fetch('http://157.245.160.185:8000/tcapi/current_user/', {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        }
+      })
+          .then(res => res.json())
+          .then(json => {
+            this.setState({ username: json.username, id: json.id});
+          });
+    }
+  }
+  initFields = () => {
+      this.state.email =  this.props.user.email;
+      this.state.username =  this.props.user.username;
+      this.state.password = this.props.password ;
+      console.log("email : "+ this.props.user.email + " pass : "+ this.props.user.password);
+      document.getElementById("email").value = this.props.user.email;
+      document.getElementById("password").value = this.props.user.password;
+  }
+
+
   handle_login = (e, data) => {
     console.log("on submit : "+data.email+"  "+data.password);
     e.preventDefault();
     if (data.email.toLowerCase()==="haniyemollaei" && data.password.toString()==="123456"){
       console.log("matched")
-      history.push("/home" , this.state);
+      history.push("/home" , this.state );
       window.location.reload();
+    }else{
+      alert("Username or password is invalid");
+      console.log("not matched");
     }
-    console.log("not matched")
+
     /*fetch('http://157.245.160.185:8000/token-auth/', {
       method: 'POST',
       headers: {
