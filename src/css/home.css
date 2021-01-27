@@ -4,11 +4,6 @@ ul {
     list-style: none;
 }
 
-#item {
-    position: relative;
-    margin: 10px;
-    left: 10px;
-}
 
 #sidebar_home {
     position: relative;
@@ -42,24 +37,23 @@ ul {
 }
 
 
-
-#tweet_button {
-    font-weight: bold;
-    position: absolute;
-    left: 75px;
-    top: 380px;
-    border: none;
-    font-family: sans-serif;
-    font-size: 0.875em;
-    list-style-type: none;
-    background-color: #1DA1F2; /* Blue background color */
-    border-radius: 30px; /* Curve of border corners */
-    color: white; /* Text color */
-    height: 50px;
-    line-height: 50px;
-    margin: 5px;
-    width: 280px;
-}
+/*#tweet_button {*/
+/*    font-weight: bold;*/
+/*    position: absolute;*/
+/*    left: 75px;*/
+/*    top: 400px;*/
+/*    border: none;*/
+/*    font-family: sans-serif;*/
+/*    font-size: 0.875em;*/
+/*    list-style-type: none;*/
+/*    background-color: #1DA1F2; !* Blue background color *!*/
+/*    border-radius: 30px; !* Curve of border corners *!*/
+/*    color: white; !* Text color *!*/
+/*    height: 50px;*/
+/*    line-height: 50px;*/
+/*    margin: 5px;*/
+/*    width: 280px;*/
+/*}*/
 
 #home {
     position: relative;
@@ -68,19 +62,31 @@ ul {
     height: 15%;
     width: inherit;
 }
-#tweets_list{
+
+#each_tweet {
+    box-sizing: content-box;
+    width: 400px;
+    height: 40px;
+    top: 70%;
+    right: 25%;
+    padding: 30px;
+    border: 2px solid #1DA1F2;
+}
+
+#tweets_list {
     position: absolute;
-    left: 30%;
-    top: 50%;
+    left: 17px;
+    top: 240px;
     right: 25%;
 }
-#tweet {
+
+#tweet_txt {
+    width: 500px;
     position: absolute;
     left: 30%;
     top: 15%;
     right: 25%;
-    width: 40%;
-    height: 20%;
+    height: 170px;
     /*align-content: center;*/
     border-radius: 30px; /* Curve of border corners */
 }
@@ -90,21 +96,11 @@ textarea .placeholder {
 }
 
 #send_tweet_button {
-    font-weight: bold;
     position: absolute;
-    left: 830px;
-    top: 245px;
-    border: none;
-    font-family: sans-serif;
-    font-size: 0.875em;
-    list-style-type: none;
-    background-color: #1DA1F2; /* Blue background color */
+    left: 460px;
+    top: 192px;
+    font-size: 16px;
     border-radius: 30px; /* Curve of border corners */
-    color: white; /* Text color */
-    height: 50px;
-    line-height: 50px;
-    margin: 5px;
-    width: 120px;
 }
 
 #search_txt {
@@ -149,4 +145,143 @@ textarea .placeholder {
     border: none;
     box-shadow: 2px 2px 3px #666;
     user-select: none;
+}
+
+#main_table {
+    width: 100%;
+    height: max-content;
+    position: relative;
+}
+
+table#main_table td {
+    align-content: start;
+    position: relative;
+    height: 100%;
+
+}
+
+#logo-home {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: block;
+    margin: auto;
+}
+
+#home {
+    background: #1DA1F2;
+    position: relative;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: aliceblue;
+}
+
+
+#sidebar_left {
+    position: relative;
+    border-radius: 10px;
+    padding: 10px;
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 100%; /* Set the width of the sidebar */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: aliceblue;
+
+}
+
+#sidebar_right {
+    position: relative;
+    border-radius: 10px;
+    padding: 10px;
+    background: aliceblue;
+
+}
+
+
+#page_center {
+    padding: 10px;
+    position: relative;
+    border-left: 2px solid #1DA1F2;
+    border-right: 2px solid #1DA1F2;
+}
+
+.menu-item {
+    display: block;
+    width: 100%;
+    height: 60px;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 5px 20px;
+    margin: 0;
+    text-align: left;
+    background: aliceblue;
+    font-family: SansSerif, sans-serif;
+
+}
+
+#text_size {
+    size: 8px;
+    color: #1DA1F2;
+}
+
+#tweet_button {
+    position: absolute;
+    left: 45px;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+    height: 60px;
+
+    color: white; /* Text color */
+}
+
+
+/*#tweet_txt {*/
+/*    position: relative;*/
+/*    !*width: 1000%;*!*/
+/*    border-radius: 30px; !* Curve of border corners *!*/
+/*}*/
+
+
+textarea .placeholder {
+    font-size: 14px;
+    position: relative;
+}
+
+/*#send_tweet_button {*/
+/*    position: relative;*/
+/*    font-family: SansSerif;*/
+/*    font-size: 16px;*/
+/*    border-radius: 30px; !* Curve of border corners *!*/
+/*    margin-right: 5px;*/
+/*    margin-left: 80%;*/
+/*}*/
+
+#size_warn {
+    size: 12px;
+    color: crimson;
+    font-family: SansSerif;
+}
+
+#search_txt {
+    position: relative;
+    font-size: 14px;
+    margin: 5px;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    border-radius: 25px; /* Curve of border corners */
+    outline-color: #1DA1F2;
+}
+
+
+.tweets {
+    position: relative;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 8px;
+    width: 50%;
 }
