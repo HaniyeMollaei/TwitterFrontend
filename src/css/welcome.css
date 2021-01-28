@@ -1,8 +1,4 @@
-#welcome-pg{
-    background-image: url("../src/twi.png");
-    background-color: #cccccc;
-    width: 50%;
-}
+
 .card {
     position: fixed;
     top: 0;
@@ -15,16 +11,9 @@
     top: 230px;
     left: 100px;
     color: aliceblue;
-    font-size: 1.875em;
-    line-height: 160%;
-    list-style-type: none;
+    font-size: 20px;
+    list-style-type: circle;
     font-weight: bold;
-}
-.magnifier {
-    left: 1000px;
-    top: 50px;
-    max-width: 6%;
-    size: 8px;
 }
 .people {
     left: 1000px;
