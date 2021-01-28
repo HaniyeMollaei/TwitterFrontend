@@ -57,7 +57,7 @@ class LoginForm extends React.Component {
           // jsonData is parsed json object received from url
           //alert("jdata " + jsonData.token)
           localStorage.setItem('token', jsonData.token);
-          alert("log: fetched2 : " + localStorage.getItem("token"));
+          alert("log: token : " + localStorage.getItem("token"));
           history.push("/home");
           window.location.reload();
         })
@@ -67,18 +67,7 @@ class LoginForm extends React.Component {
         })
 
     alert("log: fetched : " + localStorage.getItem("token"));
-    fetch('https://localhost:5001​/api​/Tweet​/like​/1', {
-      method: "GET",
-      headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem("token")
-      }
-    })
-        .catch((error) => {
-          // handle your errors here
-          console.error(error)
-        })
 
-    alert("log: fetched3 : " + localStorage.getItem("token"));
 
 
   };

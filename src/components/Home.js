@@ -17,20 +17,6 @@ class Home extends React.Component {
     count = 0 ;
 
     componentDidMount() {
-        alert("log: fetched : " + localStorage.getItem("token"));
-        fetch('https://localhost:5001​/api​/Tweet​/like​/1', {
-            method: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem("token")
-            }
-        })
-            .catch((error) => {
-                // handle your errors here
-                console.error(error)
-            })
-
-        alert("log: fetched3 : " + localStorage.getItem("token"));
-
 
     }
 
@@ -48,31 +34,36 @@ class Home extends React.Component {
             }
         }
 
+        alert("auth: " + 'Bearer ' + localStorage.getItem("token"));
+
         console.log("tags after : " +twt.hashTags);
         this.state.hashTags = twt.hashTags;
 
-        // const requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         Accept: '*/*',
-        //         'Content-Type': 'application/json' },
-        //     body: JSON.stringify(twt)
-        // }
-        //
-        // fetch('https://localhost:5001/api/Tweet', requestOptions )
-        //
-        //     .then(response => response.json())
-        //     .then((jsonData) => {
-        //         localStorage.setItem('token', jsonData.token);
-        //         alert("log: fetched2 : " + localStorage.getItem("token"));
-        //         this.state.hashTags = twt.hashTags;
-        //     })
-        //     .catch((error) => {
-        //         // handle your errors here
-        //         console.error(error)
-        //     })
-        //
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                Accept: '*/*',
+                'Content-Type': 'application/json' },
+            body: JSON.stringify(twt)
+        }
 
+        fetch('https://localhost:5001/api/Tweet', requestOptions )
+
+            .then(response => response.json())
+            .then((response) => {
+                if(response.ok)
+                    alert("tweet created");
+                else if(response.status == 401)
+                    alert("unauth");
+                this.state.hashTags = twt.hashTags;
+            })
+            .catch((error) => {
+                // handle your errors here
+                console.error(error)
+            })
+
+        alert("tweet sent");
     }
 
     makeTweet = (retweet) =>{
