@@ -32,12 +32,12 @@ class SignupForm extends React.Component {
             }else{
                 newState.disable = false;
             }
-             if (newState.image==='' || !newState.image.includes('.')){
-                 newState.image="https://uupload.ir/files/mkfe_avatar.png"
-                 //
-                 //https://uupload.ir/files/lwfw_logo.png
-             }
-                return newState;
+            if (newState.image==='' || !newState.image.includes('.')){
+                newState.image="https://uupload.ir/files/mkfe_avatar.png"
+                //
+                //https://uupload.ir/files/lwfw_logo.png
+            }
+            return newState;
         });
     };
 
@@ -51,37 +51,65 @@ class SignupForm extends React.Component {
         }
 
         const user = {
-            email : data.email,
             username: data.username,
-            password : data.password
+            email : data.email,
+            password : data.password,
+            picture : data.image,
         };
 
         this.setState({
             signedUp: true,
             username: data.username
         });
-        alert("you are signed up on Twitter\n"+this.state.username+ "\n "+this.state.email +
-            " \n"+this.state.password+" \n"+this.state.image);
+        // alert("you are signed up on Twitter\n"+this.state.username+ "\n "+this.state.email +
+        //     " \n"+this.state.password+" \n"+this.state.image);
 
         //history.push("/login" , user);
         //window.location.reload();
-        this.state.signedUp=true;
-        this.render();
+        // this.state.signedUp=true;
+        // this.render();
 
-        /*   fetch('http://157.245.160.185:8000/users/', {
-             method: 'POST',
-             headers: {
-               'Content-Type': 'application/json',
-             },
-             body: JSON.stringify(user)
-           }).then(res => res.json()).then(json => {
-             localStorage.setItem('token', json.token);
-             this.setState({
-               logged_in: true,
-               displayed_form: LoginForm,
-               username: json.username
-             });
-           }).then(() => {window.location.reload(true)}); */
+        console.log("log: stringified user : " + JSON.stringify(user));
+        const requestOptions = {
+            //mode: 'no-cors',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        }
+        //const response = fetch('https://localhost:5001/api/User', requestOptions );
+
+        fetch('https://localhost:5001/api/User', requestOptions )
+            .then(response => {
+                if (response.ok) {
+                    console.log("log: status= ok")
+                } else if(response.status === 400) {                                                         // prints not found error message in console
+                    console.log("log: status= not ok")
+                } else {
+                    console.log("log: status= " + response.status)
+                }
+            }).catch(error => console.log('Error Detected : ', error));
+        console.log("log: end fetch")
+
+        // fetch('https://localhost:5001/api/User', {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: JSON.stringify(user)
+        // }).then(res  => {
+        //     if(res.status == 200) {
+        //         this.state.signedUp=true;
+        //         alert(res.statusText);
+        //         this.render();
+        //     }
+        //     else
+        //     {
+        //         alert("success");
+        //         alert(res.statusText);
+        //         window.location.reload(true);
+        //     }
+        // });//.then(() => {window.location.reload(true)});
 
 
     };

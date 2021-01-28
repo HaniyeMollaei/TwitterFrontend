@@ -3,23 +3,17 @@ import logo from '../src/logo.png';
 import '../css/login.css';
 import {Link} from "react-router-dom";
 import history from "./history";
-import { useHistory } from "react-router-dom";
 
 class LoginForm extends React.Component {
-
   state = {
-    username: '',
     email : '',
     password: ''
   };
 
 
   componentDidMount() {
-   /* if(this.props.user !== null || this.props.user.username!==null){
-      console.log("Mount : " + this.props.user.username)
-      this.initFields();
-    }*/
-
+    // console.log("Mount : " + this.props.user.username)
+    // this.initFields();
     if (this.state.logged_in) {
       fetch('http://157.245.160.185:8000/tcapi/current_user/', {
         headers: {
@@ -33,29 +27,68 @@ class LoginForm extends React.Component {
     }
   }
   initFields = () => {
-      this.state.email =  this.props.user.email;
-      this.state.username =  this.props.user.username;
-      this.state.password = this.props.password ;
-      console.log("email : "+ this.props.user.email + " pass : "+ this.props.user.password);
-      document.getElementById("email").value = this.props.user.email;
+    this.state.email =  this.props.user.email;
+    this.state.password = this.props.password ;
+    console.log("email : "+ this.props.user.email + " pass : "+ this.props.user.password);
+    document.getElementById("email").value = this.props.user.email;
+    //document.getElementById("password").value = this.props.user.password;
   }
 
 
   handle_login = (e, data) => {
-    console.log("on submit : "+data.email+"  "+data.password);
-    e.preventDefault();
-    if ((data.email.toLowerCase()==="haniyemollaei" || data.email.toLowerCase()==="haniyemolaei1378@gmail.com")&& data.password.toString() ==="123456"){
-      console.log("matched")
-      alert("accept")
-      history.push({
-        pathname: '/home',
-        state: { user: this.props.user }
-      });
-      window.location.reload();
-    }else{
-      alert("Username or password is invalid");
-      console.log("not matched");
+    // console.log("on submit : "+data.email+"  "+data.password);
+    // e.preventDefault();
+    // if (data.email.toLowerCase()==="haniyemollaei" && data.password.toString()==="123456"){
+    //   console.log("matched")
+    //   history.push("/home" , this.state );
+    //   window.location.reload();
+    // }else{
+    //   alert("Username or password is invalid");
+    //   console.log("not matched");
+    // }
+
+    const user ={
+      userEmail : this.state.email,
+      password : this.state.password,
+    };
+    alert("log: stringified user : " + JSON.stringify(user));
+    const requestOptions = {
+      //mode: 'no-cors',
+      method: 'POST',
+      headers: {
+        Accept: '*/*',
+        'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
     }
+    //const response = fetch('https://localhost:5001/api/User', requestOptions );
+
+    fetch('https://localhost:5001/api/User/signIn', requestOptions )
+
+        .then(response => response.json())
+        .then((jsonData) => {
+          // jsonData is parsed json object received from url
+          //alert("jdata " + jsonData.token)
+          localStorage.setItem('token', jsonData.token);
+          alert("log: fetched2 : " + localStorage.getItem("token"));
+        })
+        .catch((error) => {
+          // handle your errors here
+          console.error(error)
+        })
+
+    alert("log: fetched : " + localStorage.getItem("token"));
+    fetch('https://localhost:5001​/api​/Tweet​/like​/1', {
+      method: "GET",
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem("token")
+      }
+    })
+        .catch((error) => {
+          // handle your errors here
+          console.error(error)
+        })
+
+    alert("log: fetched3 : " + localStorage.getItem("token"));
 
     /*fetch('http://157.245.160.185:8000/token-auth/', {
       method: 'POST',
@@ -101,22 +134,22 @@ class LoginForm extends React.Component {
     return (
         <div className="container">
           <img id="logo" src={logo} alt="logo"></img>
-            <p id="page-name"><strong>Log in to Twitter </strong></p>
-            <div className="myForm">
-              <form onSubmit={e => this.handle_login(e, this.state)}>
-                <div className="form-group">
-                  <input type="text" id="email" className="form-control" placeholder="Email or username" name="email" onChange={this.handle_change}></input>
-                </div>
-                <div className="form-group">
-                  <input type="password" id="password" className="form-control" placeholder="Password" name="password" onChange={this.handle_change}></input>
-                </div>
-                <div id="warning"></div>
-                <div>
-                  <button type="submit" id="login-btn" className="btn btn-primary">Log in</button>
-                </div>
-              </form>
-            </div>
-            <Link to="/signup" id="signup-link">Sign up for Twitter</Link>
+          <p id="page-name"><strong>Log in to Twitter </strong></p>
+          <div className="myForm">
+            <form onSubmit={e => this.handle_login(e, this.state)}>
+              <div className="form-group">
+                <input type="text" id="email" className="form-control" placeholder="Email or username" name="email" onChange={this.handle_change}></input>
+              </div>
+              <div className="form-group">
+                <input type="password" id="password" className="form-control" placeholder="Password" name="password" onChange={this.handle_change}></input>
+              </div>
+              <div id="warning"></div>
+              <div>
+                <button type="submit" id="login-btn" className="btn btn-primary">Log in</button>
+              </div>
+            </form>
+          </div>
+          <Link to="/signup" id="signup-link">Sign up for Twitter</Link>
         </div>
     );
   }
