@@ -1,168 +1,220 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-#main_table{
-    width: 100%;
-    height: 100%;
-    position: relative;
+@media (min-height: 20px) and (orientation: landscape ) {
+
+    #main_table {
+        flex-basis: 100%;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    table#main_table td {
+        align-content: start;
+        position: relative;
+        height: 100%;
+        flex-basis: 100%;
+
+    }
+
+    #logo-home {
+        width: 80px;
+        height: 80px;
+        position: relative;
+        display: block;
+        margin: auto;
+        flex-basis: 100%;
+
+    }
+
+    #home {
+        background: #1DA1F2;
+        position: relative;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: aliceblue;
+        flex-basis: 100%;
+    }
+
+    @media (min-height: 20px) and (orientation: landscape ) {
+        #sidebar_left {
+            position: relative;
+            border-radius: 10px;
+            padding: 10px;
+            height: 100%; /* Full-height: remove this if you want "auto" height */
+            width: 100%; /* Set the width of the sidebar */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            background: aliceblue;
+            flex-basis: 10%;
+        }
+    }
+
+    #sidebar_right {
+        position: relative;
+        border-radius: 10px;
+        padding: 10px;
+        background: aliceblue;
+        flex-basis: 1%;
+    }
+
+
+    #page_center {
+        padding: 10px;
+        position: relative;
+        border-left: 2px solid #1DA1F2;
+        border-right: 2px solid #1DA1F2;
+        flex-basis: 100%;
+
+    }
+
+    .menu-item {
+        display: block;
+        width: 100%;
+        height: 60px;
+        font-weight: bold;
+        font-size: 24px;
+        padding: 5px 20px;
+        margin: 0;
+        text-align: left;
+        font-family: SansSerif, sans-serif;
+        flex-basis: 100%;
+
+    }
+
+    #text_size {
+        size: 8px;
+        color: #1DA1F2;
+        flex-basis: 100%;
+
+    }
+
+
+    #tweet_button {
+        font-size: 24px;
+        font-weight: bold;
+        width: 100%;
+        position: relative;
+        height: 60px;
+        font-family: SansSerif;
+        color: white; /* Text color */
+        flex-basis: 100%;
+
+    }
+
+
+    #tweet_txt {
+        position: relative;
+        width: 100%;
+        border-radius: 30px; /* Curve of border corners */
+        flex-basis: 100%;
+
+    }
+
+
+    textarea .placeholder {
+        font-size: 14px;
+        position: relative;
+        flex-basis: 100%;
+
+    }
+
+    #send_tweet_button {
+        position: relative;
+        font-family: SansSerif;
+        font-size: 16px;
+        border-radius: 30px; /* Curve of border corners */
+        margin-right: 5px;
+        margin-left: 80%;
+        flex-basis: 100%;
+
+    }
+
+    #size_warn {
+        size: 12px;
+        color: crimson;
+        font-family: SansSerif;
+        flex-basis: 100%;
+
+    }
+
+
+    .tweet-box {
+
+        width: 100%; /* Set the width of the sidebar */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: left;
+        flex-basis: 100%;
+
+    }
+
+    .tweet-box td#txt-tw {
+        padding: 5px;
+        text-align: left;
+        size: 16px;
+        margin-left: 10px;
+        flex-basis: 100%;
+
+    }
+
+    .foot {
+        background: aliceblue;
+        color: #1DA1F2;
+        font-family: SansSerif;
+        flex-basis: 100%;
+
+    }
+
+    .item {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: #1DA1F2 solid 1px;
+        border-radius: 3px;
+        flex-basis: 100%;
+
+    }
+
+    #list_t {
+        background: aliceblue;
+        position: relative;
+        display: block;
+
+
+    }
+
+
+    .tweets {
+        position: relative;
+        padding: 20px;
+        margin: 5px;
+        border-radius: 8px;
+        width: 50%;
+
+
+    }
+
+    /*}*/
 }
-
-table#main_table td{
-    align-content : start;
-    position: relative;
-    height: 100%;
-
-}
-#logo-home{
-    width: 80px;
-    height: 80px;
-    position: relative ;
-    display: block;
-    margin: auto ;
-}
-#home {
-    background: #1DA1F2;
-    position: relative;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: aliceblue;
-}
-
-
-#sidebar_left{
-    position: relative;
-    border-radius: 10px;
-    padding: 10px;
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 100%; /* Set the width of the sidebar */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background: aliceblue;
-
-}
-
-#sidebar_right{
-    position: relative;
-    border-radius: 10px;
-    padding: 10px;
-    background: aliceblue;
-
-}
-
-
-#page_center{
-    padding: 10px;
-    position: relative;
-    border-left: 2px solid #1DA1F2;
-    border-right: 2px solid #1DA1F2;
-}
-
-.menu-item{
-    display: block;
-    width: 100%;
-    height: 60px;
-    font-weight: bold;
-    font-size: 24px;
-    padding: 5px 20px;
-    margin: 0;
-    text-align: left;
-    font-family: SansSerif, sans-serif;
-
-}
-
-#text_size{
-    size: 8px;
-    color: #1DA1F2;
-}
-#tweet_button {
-    font-size: 24px;
-    font-weight: bold;
-    width: 100%;
-    position: relative;
-    height: 60px;
-    font-family: SansSerif;
-    color: white; /* Text color */
-}
-
-
-#tweet_txt {
-    position: relative;
-    width: 100%;
-    border-radius: 30px; /* Curve of border corners */
-}
-
-
-textarea .placeholder {
-    font-size: 14px;
-    position: relative;
-}
-
-#send_tweet_button {
-    position: relative;
-    font-family: SansSerif;
-    font-size: 16px;
-    border-radius: 30px; /* Curve of border corners */
-    margin-right: 5px;
-    margin-left: 80%;
-}
-
-#size_warn{
-    size: 12px;
-    color: crimson;
-    font-family: SansSerif;
-}
-#search_txt {
-    position: relative;
-    font-size: 14px;
-    margin: 5px;
-    width: 100%;
-    height: 50px;
-    padding: 5px;
-    border-radius: 25px; /* Curve of border corners */
-    outline-color: #1DA1F2;
-}
-.tweet-box{
-
-    width: 100%; /* Set the width of the sidebar */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    padding-left:10px;
-    padding-right: 10px;
-    text-align: left;
-}
-.tweet-box td#txt-tw{
-    padding: 5px;
-    text-align: left;
-    size: 16px;
-    margin-left: 10px;
-}
-
-.foot{
-    background: aliceblue;
-    color: #1DA1F2;
-    font-family: SansSerif;
-}
-.item{
-    margin-bottom: 10px;
-    padding: 10px;
-    border: #1DA1F2 solid 1px;
-    border-radius: 3px;
-}
- #list_t{
-    background: aliceblue;
-    position: relative;
-     display: block;
- }
-
-
-.tweets {
-    position: relative;
-    padding: 20px;
-    margin: 5px;
-    border-radius: 8px;
-    width: 50%;
+@media (min-width: 200px) and (orientation: landscape ) {
+    #search_txt {
+        position: relative;
+        font-size: 14px;
+        margin: 5px;
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        border-radius: 25px; /* Curve of border corners */
+        outline-color: #1DA1F2;
+        flex-basis: 100%;
+    }
 }
