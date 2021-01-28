@@ -21,18 +21,15 @@ class Notifications extends React.Component {
                                 <Link to="/home">
                                     <button class="btn btn-outline-primary menu-item">Home</button>
                                 </Link>
-                                <br/>
                                 <Link to="/notifications">
                                     <button class="btn btn-primary menu-item">Notifications</button>
                                 </Link>
-                                <br/>
                                 <Link to="/profile">
                                     <button class="btn btn-outline-primary menu-item">Profile</button>
                                 </Link>
                                 <Link to="/profile">
                                     <button class="btn btn-outline-primary menu-item">Log out</button>
                                 </Link>
-                                <br/>
                                 {/*<button id="tweet_button">Tweet</button>*/}
                             </div>
                         </td>
