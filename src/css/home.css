@@ -1,208 +1,24 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-ul {
-    list-style: none;
-}
-
-
-#sidebar_home {
-    position: relative;
-    margin: 10px;
-    left: 10px;
-    border: 1px solid #aaa;
-    width: 25%;
-}
-
-.sidebar {
-    top: 30px;
-    font-family: sans-serif;
-    padding-left: 60px;
-    left: 20px;
-    height: 50px;
-    line-height: 50px;
-    border: 1px solid #aaa;
-    border-radius: 8px;
-    width: 20%;
-    background: #cccccc; /* Old browsers */
-    background: -moz-linear-gradient(top, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cccccc), color-stop(25%, #ffffff), color-stop(75%, #ffffff), color-stop(100%, #cccccc)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#cccccc', GradientType=0); /* IE6-9 */
-    cursor: pointer;
-    box-shadow: 2px 2px 3px #666;
-    user-select: none;
-}
-
-
-/*#tweet_button {*/
-/*    font-weight: bold;*/
-/*    position: absolute;*/
-/*    left: 75px;*/
-/*    top: 400px;*/
-/*    border: none;*/
-/*    font-family: sans-serif;*/
-/*    font-size: 0.875em;*/
-/*    list-style-type: none;*/
-/*    background-color: #1DA1F2; !* Blue background color *!*/
-/*    border-radius: 30px; !* Curve of border corners *!*/
-/*    color: white; !* Text color *!*/
-/*    height: 50px;*/
-/*    line-height: 50px;*/
-/*    margin: 5px;*/
-/*    width: 280px;*/
-/*}*/
-
-#home {
-    position: relative;
-    text-align: center;
-    margin: 5px 0px 5px;
-    height: 15%;
-    width: inherit;
-}
-
-.btn-primary {
-    background-color: #1DA1F2;
-    border-color: #1DA1F2;
-}
-
-#retweet {
-    width: 32px;
-    position: absolute;
-    left: 400px;
-    top:70px;
-}
-
-.customContainer {
-    border: 1px solid black;
-}
-
-#each_tweet {
-    box-sizing: content-box;
-    width: 400px;
-    height: 40px;
-    top: 70%;
-    right: 25%;
-    padding: 30px;
-    border: 2px solid #1DA1F2;
-    word-break: break-all;
-
-}
-
-.like {
-    color: #1DA1F2;
-    outline: none;
-    background: #fff;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
-    box-shadow: 0 0 22px 4px rgba(0, 0, 0, 0.1);
-    height: 40px;
-    width: 100px;
-    transition: box-shadow 0.3s;
-
-}
-
-#tweets_list {
-    position: absolute;
-    left: 17px;
-    top: 240px;
-    right: 25%;
-    word-break: break-all;
-
-}
-
-#tweet_txt {
-    width: 500px;
-    position: absolute;
-    left: 30%;
-    top: 15%;
-    right: 25%;
-    height: 170px;
-    word-break: break-all;
-    /*align-content: center;*/
-    border-radius: 30px; /* Curve of border corners */
-}
-
-textarea .placeholder {
-    font-size: 14px;
-}
-
-#send_tweet_button {
-    position: absolute;
-    left: 460px;
-    top: 192px;
-    font-size: 16px;
-    border-radius: 30px; /* Curve of border corners */
-}
-
-#search_txt {
-    position: relative;
-    font-size: 14px;
-    margin: 5px;
-    padding: 5px;
-    border-radius: 25px; /* Curve of border corners */
-}
-
-#sidebar_search {
-    width: 25%;
-    left: 75%;
-    right: 5px;
-    top: 15%;
-    align-content: center;
-}
-
-#page_center {
-    width: 25%;
-}
-
-.tweets {
-    list-style: -moz-gurmukhi;
-    position: relative;
-    padding: 20px;
-    left: 420px;
-    top: 140px;
-    height: 150px;
-    margin: 5px;
-    border-radius: 8px;
-    width: 50%;
-    background: #cccccc; /* Old browsers */
-    background: -moz-linear-gradient(top, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cccccc), color-stop(25%, #ffffff), color-stop(75%, #ffffff), color-stop(100%, #cccccc)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #cccccc 0%, #ffffff 25%, #ffffff 75%, #cccccc 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#cccccc', GradientType=0); /* IE6-9 */
-    cursor: pointer;
-    border: none;
-    box-shadow: 2px 2px 3px #666;
-    user-select: none;
-}
-
-#main_table {
+#main_table{
     width: 100%;
-    height: max-content;
+    height: 100%;
     position: relative;
 }
 
-table#main_table td {
-    align-content: start;
+table#main_table td{
+    align-content : start;
     position: relative;
     height: 100%;
 
 }
-
-#logo-home {
+#logo-home{
     width: 80px;
     height: 80px;
-    position: relative;
+    position: relative ;
     display: block;
-    margin: auto;
+    margin: auto ;
 }
-
 #home {
     background: #1DA1F2;
     position: relative;
@@ -213,7 +29,7 @@ table#main_table td {
 }
 
 
-#sidebar_left {
+#sidebar_left{
     position: relative;
     border-radius: 10px;
     padding: 10px;
@@ -227,7 +43,7 @@ table#main_table td {
 
 }
 
-#sidebar_right {
+#sidebar_right{
     position: relative;
     border-radius: 10px;
     padding: 10px;
@@ -236,14 +52,14 @@ table#main_table td {
 }
 
 
-#page_center {
+#page_center{
     padding: 10px;
     position: relative;
     border-left: 2px solid #1DA1F2;
     border-right: 2px solid #1DA1F2;
 }
 
-.menu-item {
+.menu-item{
     display: block;
     width: 100%;
     height: 60px;
@@ -257,28 +73,26 @@ table#main_table td {
 
 }
 
-#text_size {
+#text_size{
     size: 8px;
     color: #1DA1F2;
 }
-
 #tweet_button {
-    position: absolute;
-    left: 45px;
     font-size: 24px;
     font-weight: bold;
     width: 100%;
+    position: relative;
     height: 60px;
-
+    font-family: SansSerif;
     color: white; /* Text color */
 }
 
 
-/*#tweet_txt {*/
-/*    position: relative;*/
-/*    !*width: 1000%;*!*/
-/*    border-radius: 30px; !* Curve of border corners *!*/
-/*}*/
+#tweet_txt {
+    position: relative;
+    width: 100%;
+    border-radius: 30px; /* Curve of border corners */
+}
 
 
 textarea .placeholder {
@@ -286,21 +100,20 @@ textarea .placeholder {
     position: relative;
 }
 
-/*#send_tweet_button {*/
-/*    position: relative;*/
-/*    font-family: SansSerif;*/
-/*    font-size: 16px;*/
-/*    border-radius: 30px; !* Curve of border corners *!*/
-/*    margin-right: 5px;*/
-/*    margin-left: 80%;*/
-/*}*/
+#send_tweet_button {
+    position: relative;
+    font-family: SansSerif;
+    font-size: 16px;
+    border-radius: 30px; /* Curve of border corners */
+    margin-right: 5px;
+    margin-left: 80%;
+}
 
-#size_warn {
+#size_warn{
     size: 12px;
     color: crimson;
     font-family: SansSerif;
 }
-
 #search_txt {
     position: relative;
     font-size: 14px;
@@ -311,6 +124,40 @@ textarea .placeholder {
     border-radius: 25px; /* Curve of border corners */
     outline-color: #1DA1F2;
 }
+.tweet-box{
+
+    width: 100%; /* Set the width of the sidebar */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    padding-left:10px;
+    padding-right: 10px;
+    text-align: left;
+}
+.tweet-box td#txt-tw{
+    padding: 5px;
+    text-align: left;
+    size: 16px;
+    margin-left: 10px;
+}
+
+.foot{
+    background: aliceblue;
+    color: #1DA1F2;
+    font-family: SansSerif;
+}
+.item{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: #1DA1F2 solid 1px;
+    border-radius: 3px;
+}
+ #list_t{
+    background: aliceblue;
+    position: relative;
+     display: block;
+ }
 
 
 .tweets {

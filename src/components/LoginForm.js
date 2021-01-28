@@ -3,8 +3,10 @@ import logo from '../src/logo.png';
 import '../css/login.css';
 import {Link} from "react-router-dom";
 import history from "./history";
+import { useHistory } from "react-router-dom";
 
 class LoginForm extends React.Component {
+
   state = {
     username: '',
     email : '',
@@ -13,8 +15,11 @@ class LoginForm extends React.Component {
 
 
   componentDidMount() {
-    console.log("Mount : " + this.props.user.username)
-    this.initFields();
+   /* if(this.props.user !== null || this.props.user.username!==null){
+      console.log("Mount : " + this.props.user.username)
+      this.initFields();
+    }*/
+
     if (this.state.logged_in) {
       fetch('http://157.245.160.185:8000/tcapi/current_user/', {
         headers: {
@@ -33,16 +38,19 @@ class LoginForm extends React.Component {
       this.state.password = this.props.password ;
       console.log("email : "+ this.props.user.email + " pass : "+ this.props.user.password);
       document.getElementById("email").value = this.props.user.email;
-      document.getElementById("password").value = this.props.user.password;
   }
 
 
   handle_login = (e, data) => {
     console.log("on submit : "+data.email+"  "+data.password);
     e.preventDefault();
-    if (data.email.toLowerCase()==="haniyemollaei" && data.password.toString()==="123456"){
+    if ((data.email.toLowerCase()==="haniyemollaei" || data.email.toLowerCase()==="haniyemolaei1378@gmail.com")&& data.password.toString() ==="123456"){
       console.log("matched")
-      history.push("/home" , this.state );
+      alert("accept")
+      history.push({
+        pathname: '/home',
+        state: { user: this.props.user }
+      });
       window.location.reload();
     }else{
       alert("Username or password is invalid");

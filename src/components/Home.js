@@ -2,122 +2,94 @@ import React from 'react';
 import '../css/home.css';
 import {Link} from "react-router-dom";
 import logo from "../src/logo.png";
-import retweet from "../src/retweet.png";
-
-class TweetsList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {liked: false};
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick(event) {
-        this.setState({liked: !this.state.liked});
-    }
-
-    sendTweet(e) {
-        //  e.preventDefault();
-        let newTweet = this.refs.item.value;
-        if (newTweet !== '') {
-            this.props.addTweet(newTweet);
-            this.refs.item.value = '';
-        }
-    }
-
-    render() {
-        let buttonText = this.state.liked ? 'Unlike' : 'Like';
-        return (
-            <ul id="tweets_list">
-                {Object.keys(this.props.eachTweet).map((index) => {
-                    return (
-                        <li id="each_tweet" name={index}>{this.props.eachTweet[index]}
-                            <div className="customContainer">
-                                <button onClick={this.handleClick} className="like">
-                                    {buttonText}</button>
-                                <input id="comment" placeholder="comment"/>
-                                {/*<form onSubmit={e => this.sendTweet(e)}>*/}
-                                <img id="retweet" src={retweet} onClick={e =>
-                                    this.sendTweet(this.props.eachTweet[index], this.state)}/>
-                                {/*</form>*/}
-                            </div>
-                        </li>
-                    );
-                })}
-            </ul>
-        )
-    }
-}
-
-class TweetBox extends React.Component {
-    sendTweet(e) {
-        e.preventDefault();
-        let newTweet = this.refs.item.value;
-        if (newTweet !== '') {
-            this.props.addTweet(newTweet);
-            this.refs.item.value = '';
-        }
-    }
-
-    render() {
-        return (
-            <form onSubmit={e => this.sendTweet(e)}>
-                <input class="form-control" onChange={this.handle_change} id="tweet_txt" name="tweet" rows="8" cols="70"
-                       placeholder="what's happening?" type="text" ref="item"/><br/>
-                <p id="text_size"></p>
-                <div id="tweet_size_warn"></div>
-                <button id="send_tweet_button" type="submit" class="btn btn-primary"
-                        onClick={e => this.sendTweet(e, this.state)}>Tweet
-                </button>
-            </form>
-        );
-    }
-}
 
 class Home extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            TweetsList: []
-        };
-        this.addTweetToList = this.addTweetToList.bind(this);
-        //this.removeListItem = this.removeListItem.bind(this);
-    }
-
-    addTweetToList(newTweet) {
-        let currentList = this.state.TweetsList;
-        currentList.push(newTweet);
-        this.setState({TweetsList: currentList});
-    }
-
-    // removeListItem(itemToRemove) {
-    //     let currentList = this.state.TweetsList;
-    //     currentList.splice(itemToRemove, 1);
-    //     this.setState({TweetsList: currentList});
-    // }
 
     state = {
         username: '',
-        tweet: '',
-        disable_tweet: false
-
+        tweet:'',
+        disable_tweet :false,
+        TweetsList: []
     };
+
+    count = 0 ;
+
+    componentDidMount() {
+
+    }
+
+
+    addLike =()  =>{
+        alert("hey : ");
+        // this.state.TweetsList[e.target.key].like = this.state.TweetsList[e.target.key].like++ ;
+        // document.getElementById(`like-btn${e.target.key}`).value =`liked (${this.state.TweetsList[e.target.key].like })`;
+        //this.state.TweetsList[id].like = this.state.TweetsList[id].like++ ;
+        //document.getElementById(`like-btn${id}`).value =`liked (${this.state.TweetsList[id].like })`;
+
+    }
+    sendTweet = (e, data)  =>{
+
+        const tweet={
+            id:this.count,
+            text: data.tweet.toString(),
+            retweet:0,
+            like:0,
+            comment:0
+        }
+
+        this.state.TweetsList[this.count++] = tweet;
+
+        const field = document.getElementById("list_t");
+        const template = document.createElement("div");
+        template.setAttribute("class", "backg");
+        field.parentNode.appendChild(template);
+
+        const elem = document.createElement("div");
+        elem.setAttribute("class", "item");
+        elem.innerHTML = tweet.text;
+        elem.innerHTML= `<table class="tweet-box"><tr class="row"><td id="txt-tw">${tweet.text}</td></tr>
+                        <tr class="row">
+                        <td class="col"><button class="btn foot" id="like-btn${tweet.id}" name="like">like (${tweet.like})</button></td>
+                        <td class="col"><button class="btn foot" id="retweet-btn${tweet.id}" name="retweet">retweet (${tweet.retweet})</button></td>
+                        <td class="col"><button class="btn foot" id="comment-btn${tweet.id}" name="comment">comment (${tweet.comment})</button></td>
+                        </tr></table>`;
+
+        template.appendChild(elem);
+        this.state.tweet='';
+        document.getElementById("tweet_txt").value="";
+
+        document.getElementById(`like-btn${tweet.id}`).addEventListener("click", ()=>{
+            this.state.TweetsList[tweet.id].like = ++this.state.TweetsList[tweet.id].like ;
+            document.getElementById(`like-btn${tweet.id}`).innerHTML =`liked (${this.state.TweetsList[tweet.id].like })`;
+        })
+        document.getElementById(`retweet-btn${tweet.id}`).addEventListener("click", ()=>{
+            this.state.TweetsList[tweet.id].retweet = ++this.state.TweetsList[tweet.id].retweet ;
+            document.getElementById(`retweet-btn${tweet.id}`).innerHTML =`retweeted (${this.state.TweetsList[tweet.id].retweet })`;
+        })
+        document.getElementById(`comment-btn${tweet.id}`).addEventListener("click", ()=>{
+
+        })
+
+    }
+
+
     handle_change = e => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState(prestate => {
-            const newState = {...prestate};
+            const newState = { ...prestate };
             newState[name] = value;
-            document.getElementById("text_size").innerHTML = newState.tweet.length.toString();
-            if (newState.tweet.length < 1 || newState.tweet.length > 10) {
-                document.getElementById("tweet_size_warn").innerHTML = "<p class='warn' id='size_warn'>tweet must have 1 to 250 letters</p>";
+            document.getElementById("text_size").innerHTML=newState.tweet.length.toString()+"/250";
+            if (newState.tweet.length<1 || newState.tweet.length>250){
+                document.getElementById("tweet_size_warn").innerHTML="<p id='size_warn'>tweet must have 1 to 250 letters</p>";
                 this.state.disable_tweet = true;
-            } else {
+            }else {
                 this.state.disable_tweet = false;
             }
-            console.log("tweet : " + value);
             return newState;
         });
     };
+
 
     render() {
         return (
@@ -132,37 +104,34 @@ class Home extends React.Component {
                         <td class="col-4">
                             <div id="sidebar_left">
                                 <img id="logo-home" src={logo} alt="logo"></img>
-                                <Link to="/home">
-                                    <button class="btn btn-outline-primary menu-item">Home</button>
-                                </Link>
+                                <Link to="/home"><button class="btn btn-outline-primary menu-item">Home</button></Link>
                                 <br/>
-                                <Link to="/notifications">
-                                    <button class="btn btn-outline-primary menu-item">Notifications</button>
-                                </Link>
+                                <Link to="/notifications"><button class="btn btn-outline-primary menu-item">Notifications</button></Link>
                                 <br/>
-                                <Link to="/profile">
-                                    <button class="btn btn-outline-primary menu-item">Profile</button>
-                                </Link>
-                                <Link to="/profile">
-                                    <button class="btn btn-outline-primary menu-item">Log out</button>
-                                </Link>
+                                <Link to="/profile"><button class="btn btn-outline-primary menu-item">Profile</button></Link>
                                 <br/>
-                                {/*<button id="tweet_button">Tweet</button>*/}
+                                <Link to="/welcome"><button class="btn btn-outline-primary menu-item">Log Out</button></Link>
                             </div>
                         </td>
                         <td class="col-5" colSpan="2">
                             <div id="page_center">
-                                <div>
-                                    <TweetsList eachTweet={this.state.TweetsList}/>
-                                    <TweetBox addTweet={this.addTweetToList}/>
+                                <div class="tweet">
+                                    <textarea class="form-control" id="tweet_txt" name="tweet" rows="8" cols="70" placeholder="  What's happening?"
+                                              onChange={this.handle_change}></textarea>
+                                    <p id="text_size"></p>
+                                    <div id="tweet_size_warn"></div>
+                                    <button id="send_tweet_button" class="btn btn-primary" disabled={this.state.disable_tweet} onClick={e => this.sendTweet(e, this.state)}>Tweet</button>
+                                </div>
+                                <div class="tweet_list">
+                                    <ul id="list_t">
+
+                                    </ul>
                                 </div>
                             </div>
                         </td>
                         <td class="col-3">
                             <div id="sidebar_right">
-                                <input id="search_txt" type="text" size="10" class="form-control"
-                                       placeholder="Search Twitter"
-                                       name="search"></input>
+                                <input id="search_txt" type="text" size="10" class="form-control" placeholder="Search Twitter" onClick={e => this.sendTweet(e, this.state)} name="search"></input>
                             </div>
                         </td>
                     </tr>
@@ -171,5 +140,4 @@ class Home extends React.Component {
         );
     }
 }
-
 export default Home;
