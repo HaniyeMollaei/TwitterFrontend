@@ -1,80 +1,97 @@
+@media (min-height: 200px) and (orientation: landscape ) {
+    .card {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        width: 720px;
+        height: 670px;
+        flex-basis: 100%;
 
-.card {
-    position: fixed;
-    top: 0;
-    left: 650px;
-    width: 720px;
-    height: 670px;
-}
-.about_twitter {
-    position: absolute;
-    top: 230px;
-    left: 100px;
-    color: aliceblue;
-    font-size: 20px;
-    list-style-type: circle;
-    font-weight: bold;
-}
-.people {
-    left: 1000px;
-    top: 50px;
-    max-width: 6%;
-    size: 8px;
-}
-.logo {
-    position: fixed;
-    top: 0;
-    left: 650px;
-    width: 720px;
-    height: 670px;
-}
-.title {
-    font-weight: bold;
-    position: absolute;
-    top: 170px;
-    left: 850px;
-    font-family: sans-serif;
-    color: black;
-    font-size: 1.875em;
-    line-height: 160%;
-    list-style-type: none;
-}
-#join {
-    font-weight: bold;
-    position: absolute;
-    top: 360px;
-    left: 850px;
-    font-family: sans-serif;
-    color: black;
-    font-size: 0.875em;
-    list-style-type: none;
-}
-#sign_up-btn {
-    font-weight: bold;
-    position: absolute;
-    top: 386px;
-    left: 850px;
-    border: none;
-    font-family: sans-serif;
-    font-size: 0.875em;
-    list-style-type: none;
-    background-color: #1DA1F2; /* Blue background color */
-    border-radius: 30px; /* Curve of border corners */
-    color: white; /* Text color */
-    width: 350px;
-    height: 50px;
-}
-#log_in-btn {
-    font-weight: bold;
-    position: absolute;
-    top: 445px;
-    left: 850px;
-    border-color:  #1DA1F2;
-    font-family: sans-serif;
-    font-size: 0.875em;
-    background-color: white; /* Blue background color */
-    border-radius: 30px; /* Curve of border corners */
-    color:  #1DA1F2; /* Text color */
-    width: 350px;
-    height: 50px;
+    }
+    /*.background {*/
+    /*position: fixed;*/
+    /*}*/
+    .about_twitter {
+        position: absolute;
+        top: 230px;
+        left: 100px;
+        color: aliceblue;
+        font-size: 20px;
+        list-style-type: circle;
+        font-weight: bold;
+        flex-basis: 100%;
+
+    }
+
+
+    .logo {
+        position: fixed;
+        top: 0;
+        left: 650px;
+        width: 720px;
+        height: 670px;
+        flex-basis: 100%;
+
+    }
+
+    .title {
+        font-weight: bold;
+        position: absolute;
+        top: 170px;
+        left: 60%;
+
+        font-family: sans-serif;
+        color: black;
+        font-size: 1.875em;
+        line-height: 160%;
+        list-style-type: none;
+        flex-basis: 100%;
+
+    }
+
+    #join {
+        font-weight: bold;
+        position: absolute;
+        top: 360px;
+        left: 60%;
+        font-family: sans-serif;
+        color: black;
+        font-size: 0.875em;
+        list-style-type: none;
+        flex-basis: 100%;
+
+    }
+
+    #sign_up-btn {
+        font-weight: bold;
+        position: absolute;
+        top: 386px;
+        flex-basis: 100%;
+        left: 60%;
+        border: none;
+        font-family: sans-serif;
+        font-size: 0.875em;
+        list-style-type: none;
+        background-color: #1DA1F2; /* Blue background color */
+        border-radius: 30px; /* Curve of border corners */
+        color: white; /* Text color */
+        width: 350px;
+        height: 50px;
+    }
+
+    #log_in-btn {
+        font-weight: bold;
+        position: absolute;
+        top: 445px;
+        flex-basis: 100%;
+        left: 60%;
+        border-color: #1DA1F2;
+        font-family: sans-serif;
+        font-size: 0.875em;
+        background-color: white; /* Blue background color */
+        border-radius: 30px; /* Curve of border corners */
+        color: #1DA1F2; /* Text color */
+        width: 350px;
+        height: 50px;
+    }
 }
