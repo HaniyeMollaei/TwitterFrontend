@@ -104,12 +104,9 @@ class Home extends React.Component {
                         <td class="col-4">
                             <div id="sidebar_left">
                                 <img id="logo-home" src={logo} alt="logo"></img>
-                                <Link to="/home"><button class="btn btn-outline-primary menu-item">Home</button></Link>
-                                <br/>
+                                <Link to="/home"><button class="btn btn-primary menu-item">Home</button></Link>
                                 <Link to="/notifications"><button class="btn btn-outline-primary menu-item">Notifications</button></Link>
-                                <br/>
                                 <Link to="/profile"><button class="btn btn-outline-primary menu-item">Profile</button></Link>
-                                <br/>
                                 <Link to="/welcome"><button class="btn btn-outline-primary menu-item">Log Out</button></Link>
                             </div>
                         </td>

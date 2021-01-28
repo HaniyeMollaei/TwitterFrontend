@@ -23,7 +23,7 @@ class Notifications extends React.Component {
                                 </Link>
                                 <br/>
                                 <Link to="/notifications">
-                                    <button class="btn btn-outline-primary menu-item">Notifications</button>
+                                    <button class="btn btn-primary menu-item">Notifications</button>
                                 </Link>
                                 <br/>
                                 <Link to="/profile">
@@ -36,7 +36,7 @@ class Notifications extends React.Component {
                                 {/*<button id="tweet_button">Tweet</button>*/}
                             </div>
                         </td>
-                        <td class="col-5" colSpan="2">
+                        <td class="col-5" >
                             <div id="page_center">
                                 <ul className="pagination">
                                     <a href="#">All</a>
@@ -46,9 +46,7 @@ class Notifications extends React.Component {
                         </td>
                         <td class="col-3">
                             <div id="sidebar_right">
-                                <input id="search_txt" type="text" size="10" class="form-control"
-                                       placeholder="Search Twitter"
-                                       name="search"></input>
+
                             </div>
                         </td>
                     </tr>
