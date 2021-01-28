@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
   };
 
 
-  componentDidMount() {
+  /*componentDidMount() {
     // console.log("Mount : " + this.props.user.username)
     // this.initFields();
     if (this.state.logged_in) {
@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
             this.setState({ username: json.username, id: json.id});
           });
     }
-  }
+  }*/
   initFields = () => {
     this.state.email =  this.props.user.email;
     this.state.password = this.props.password ;
@@ -36,16 +36,6 @@ class LoginForm extends React.Component {
 
 
   handle_login = (e, data) => {
-    // console.log("on submit : "+data.email+"  "+data.password);
-    // e.preventDefault();
-    // if (data.email.toLowerCase()==="haniyemollaei" && data.password.toString()==="123456"){
-    //   console.log("matched")
-    //   history.push("/home" , this.state );
-    //   window.location.reload();
-    // }else{
-    //   alert("Username or password is invalid");
-    //   console.log("not matched");
-    // }
 
     const user ={
       userEmail : this.state.email,
@@ -53,14 +43,12 @@ class LoginForm extends React.Component {
     };
     alert("log: stringified user : " + JSON.stringify(user));
     const requestOptions = {
-      //mode: 'no-cors',
       method: 'POST',
       headers: {
         Accept: '*/*',
         'Content-Type': 'application/json' },
       body: JSON.stringify(user)
     }
-    //const response = fetch('https://localhost:5001/api/User', requestOptions );
 
     fetch('https://localhost:5001/api/User/signIn', requestOptions )
 
@@ -70,6 +58,8 @@ class LoginForm extends React.Component {
           //alert("jdata " + jsonData.token)
           localStorage.setItem('token', jsonData.token);
           alert("log: fetched2 : " + localStorage.getItem("token"));
+          history.push("/home");
+          window.location.reload();
         })
         .catch((error) => {
           // handle your errors here
@@ -90,29 +80,7 @@ class LoginForm extends React.Component {
 
     alert("log: fetched3 : " + localStorage.getItem("token"));
 
-    /*fetch('http://157.245.160.185:8000/token-auth/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-        .then(res => res.json())
-        .then(json => {
-          localStorage.setItem('token', json.token);
-          try {
-            this.setState({
-              logged_in: localStorage.getItem('token'),
-              username: data.username
-            });
-            history.push("/home" , this.state);
-            window.location.reload();
-          } catch(e) {
-            console.log(e);
-          }
-        });
 
-     */
   };
 
 

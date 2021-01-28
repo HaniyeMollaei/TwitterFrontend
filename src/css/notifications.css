@@ -1,4 +1,4 @@
-@media (min-width: 600px) {
+@media (min-height: 20px) and (orientation: landscape ) {
 
     .pagination {
         position: absolute;

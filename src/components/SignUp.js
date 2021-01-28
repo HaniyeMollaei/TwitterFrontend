@@ -83,6 +83,8 @@ class SignupForm extends React.Component {
             .then(response => {
                 if (response.ok) {
                     console.log("log: status= ok")
+                    history.push("/login");
+                    window.location.reload();
                 } else if(response.status === 400) {                                                         // prints not found error message in console
                     console.log("log: status= not ok")
                 } else {

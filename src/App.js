@@ -23,42 +23,6 @@ class App extends Component {
 
 
 
-  handle_logout = () => {
-    <Link to="/login"/>
-    localStorage.removeItem('token');
-    this.setState({ logged_in: false, username: ''});
-  };
-
-  handle_signup = (e, data) => {
-    console.log(data);
-  };
-
-  handle_login = (e, data) => {
-    e.preventDefault();
-    fetch('http://localhost:8080/token-auth/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-        .then(res => res.json())
-        .then(json => {
-          localStorage.setItem('token', json.token);
-          try {
-            this.setState({
-              logged_in: localStorage.getItem('token'),
-              username: json.user.username
-            });
-
-            window.location.reload();
-          } catch (e) {
-            console.log(e);
-          }
-        });
-  };
-
-
 
   render() {
 
